@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sims</title>
+  <link rel="icon" href="image.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* ================= RESET ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background: rgba(0, 0, 0, 0.95);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+
+    .logo i {
+      font-size: 28px;
+      color: #ff6b6b;
+    }
+
+    .logo span {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span span {
+      color: #ff6b6b;
+    }
+
+    .nav-links {
+      position: fixed;
+      right: -100%;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background: #111;
+      padding: 60px 30px;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    .nav-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-links ul li {
+      margin: 20px 0;
+    }
+
+    .nav-links ul li a {
+      color: #ccc;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-links ul li a:hover {
+      color: #ff6b6b;
+    }
+
+    .fa-bars,
+    .fa-times {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #fff;
+    }
+   
+    /* Desktop nav links */
+@media(min-width: 769px) {
+  .nav-links {
+    position: static;       /* normal flow */
+    width: auto;            /* fit content */
+    height: auto;           /* fit content */
+    background: none;       /* remove mobile background */
+    padding: 0;             /* remove mobile padding */
+    display: flex;          /* show links horizontally */
+  }
+
+  .nav-links ul {
+    flex-direction: row;    /* horizontal menu */
+    gap: 20px;              /* spacing between links */
+  }
+
+  .nav-links ul li {
+    margin: 0;
+  }
+
+  .fa-bars,
+  .fa-times {
+    display: none;          /* hide hamburger on desktop */
+  }
+}
+
+    /* ================= SLIDER ================= */
+    .slide-showcase {
+      height: 50vh;
+      background: url('simcity-670.jpg') center/cover fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .slide-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .slide-showcase h2,
+    .slide-showcase p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-showcase h2 {
+      font-size: 45px;
+      text-transform: uppercase;
+    }
+
+    .slide-showcase p {
+      margin-top: 10px;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .slide-showcase p span {
+      color: #ff6b6b;
+    }
+
+    /* ================= PRODUCTS GRID ================= */
+    .products-grid {
+      max-width: 1200px;
+      margin: 50px auto 80px auto;
+      padding: 0 20px;
+      display: grid;
+      gap: 40px;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .products-items {
+      background: #111;
+      color: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .products-items:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 25px rgba(255, 107, 107, 0.5);
+    }
+
+    .products-items img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .products-items:hover img {
+      transform: scale(1.05);
+    }
+
+    .products-text {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .products-text h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .products-text p {
+      flex-grow: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .button-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #ff6b6b;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      border-radius: 30px;
+      transition: 0.3s;
+      margin-top: auto;
+    }
+
+    .button-btn:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+    }
+
+    /* ================= PRODUCT DETAILS ================= */
+    .products-text.details {
+      grid-column: 1/-1;
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .products-text.details h3 {
+      color: #ff6b6b;
+      margin-bottom: 10px;
+    }
+
+    .products-text.details p {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #000;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    footer p {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #ff6b6b;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media(max-width:1024px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-showcase h2 {
+        font-size: 32px;
+      }
+
+      .products-items img {
+        height: 200px;
+      }
+
+      .fa-bars,
+      .fa-times {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a></div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="slide-showcase">
+    <h2>Sims Games</h2>
+    <p><a href="index.html">Home</a> / <a href="brands.html">Brands</a> / <span>Sims</span></p>
+  </div>
+
+  <div class="products-grid">
+    <div class="products-container">
+      <div class="products-items">
+        <img src="bloodstone.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Blood Stone</h3>
+          </a>
+          <p>James Bond 007: Blood Stone is a third-person shooter video game, developed by Bizarre Creations and
+            published by Activision.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="destiny.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Destiny</h3>
+          </a>
+          <p>Destiny is an online-only multiplayer first-person shooter video game developed by Bungie and published by
+            Activision.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="spiderman.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Spiderman</h3>
+          </a>
+          <p>Spider-Man is an action-adventure video game based on the Marvel Comics series The Amazing Spider-Man.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="callofdutymobile.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Call of Duty Mobile</h3>
+          </a>
+          <p>Call of Duty: Mobile is a free-to-play first-person shooter game developed by Tencent Games and published
+            by Activision.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="sekiro.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Sekiro</h3>
+          </a>
+          <p>Sekiro: Shadows Die Twice is an action-adventure video game developed by FromSoftware and published by
+            Activision.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="crash-team.jpg" alt="">
+        <div class="products-text">
+          <a href="#">
+            <h3>Crash Team Racing</h3>
+          </a>
+          <p>Crash Team Racing Nitro-Fueled is a kart racing game developed by Beenox and published by Activision.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-container">
+      <div class="products-text details">
+        <h3>The Sims</h3>
+        <p>The Sims is a strategic life-simulation video game developed by Maxis and published by Electronic Arts. It
+          simulates daily activities of virtual people in a suburban household.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights are reserved.</p>
+  </footer>
+
+  <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() { navLinks.style.right = "0"; }
+    function hideMenu() { navLinks.style.right = "-100%"; }
+  </script>
+
+</body>
+
+</html>

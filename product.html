@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangoline-Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="icon" href="image.png">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="brands.html">Brands</a></li>
+
+                <li class="nav-dropdown">
+                    <a href="product.html" class="dropdown-toggle active">Products <i
+                            class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#products" data-products-tab="games">Games</a></li>
+                        <li><a href="#products" data-products-tab="consoles">Consoles</a></li>
+                    </ul>
+                </li>
+                <li><a href="order.html">Order</a></li>
+                <!-- Cart Icon -->
+                <li>
+                    <a href="checking.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount" style="color:#ff6b6b; font-weight:bold;">0</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="hero">
+        <div class="slider">
+            <div class="slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1920&q=80');">
+                <div class="slide-content">
+                    <span class="tag">Featured</span>
+                    <h1>Next-Gen <span>Gaming</span> Experience</h1>
+                    <p>Discover the latest titles and exclusive deals on premium gaming products</p>
+                    <a href="#products" class="btn">Explore Products <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slide"
+                style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1920&q=80');">
+                <div class="slide-content">
+                    <span class="tag">New Release</span>
+                    <h1>Unlock Your <span>Adventure</span></h1>
+                    <p>Immerse yourself in breathtaking worlds and epic storylines</p>
+                    <a href="#products" class="btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slide"
+                style="background-image: url('slider.jpeg');">
+                <div class="slide-content">
+                    <span class="tag">Best Sellers</span>
+                    <h1>Premium <span>Collection</span></h1>
+                    <p>Top-rated games handpicked for the ultimate gaming experience</p>
+                    <a href="#products" class="btn">View Collection <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                <span class="slider-dot" onclick="goToSlide(1)"></span>
+                <span class="slider-dot" onclick="goToSlide(2)"></span>
+            </div>
+            <button class="slider-arrow prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    </header>
+
+    <section class="games-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse <span>Products</span></h2>
+            </div>
+
+            <div class="tab-panel active" data-tab-panel="games">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Games</button>
+                    <button class="filter-btn" data-filter="action">Action</button>
+                    <button class="filter-btn" data-filter="adventure">Adventure</button>
+                    <button class="filter-btn" data-filter="rpg">RPG</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                </div>
+
+                <div class="games-grid" id="gamesGrid">
+                    <div class="game-card" data-category="action">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80"
+                                alt="Cyber Assault">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge new">New</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-xbox"></i>
+                                <i class="fab fa-steam"></i>
+                            </div>
+                            <h3>Cyber Assault 2077</h3>
+                            <p class="game-description">Experience the future of gaming in this action-packed cyberpunk
+                                adventure with stunning graphics and immersive gameplay.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.5</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$59.99</span>
+                                <span class="original-price">$79.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="action">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1589241062272-c0a000072dfa?auto=format&fit=crop&w=600&q=80"
+                                alt="Fortnite">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-xbox"></i>
+                                <i class="fab fa-steam"></i>
+                            </div>
+                            <h3>Fortnite</h3>
+                            <p class="game-description">Join millions in this battle royale phenomenon. Build, fight,
+                                and survive in an ever-evolving free-to-play game.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">Free to Play</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="rpg">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80"
+                                alt="Dragon Realm">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge sale">-30%</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-steam"></i>
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <h3>Dragon Realm Online</h3>
+                            <p class="game-description">Embark on an epic fantasy journey. Slay dragons, discover
+                                treasures, and forge your legend in this massive online RPG.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.0</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$34.99</span>
+                                <span class="original-price">$49.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="action">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"
+                                alt="PUBG">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-xbox"></i>
+                                <i class="fab fa-steam"></i>
+                            </div>
+                            <h3>PUBG: Battlegrounds</h3>
+                            <p class="game-description">Drop into tactical warfare. Be the last one standing in this
+                                intense 100-player battle royale shooter with realistic combat.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.6</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">Free to Play</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="action">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+                                alt="Shadow Strike">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge new">New</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-steam"></i>
+                            </div>
+                            <h3>Shadow Strike</h3>
+                            <p class="game-description">Master stealth and precision in this critically acclaimed action
+                                game. Every mission is a lethal work of art.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$54.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="rpg">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80"
+                                alt="Mystic Legends">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge sale">-50%</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-xbox"></i>
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <h3>Mystic Legends</h3>
+                            <p class="game-description">Explore a magical world filled with ancient mysteries and
+                                powerful spells. Your destiny awaits in this enchanting RPG.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.2</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$24.99</span>
+                                <span class="original-price">$49.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="adventure">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=600&q=80"
+                                alt="Ocean Explorer">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-xbox"></i>
+                                <i class="fab fa-steam"></i>
+                            </div>
+                            <h3>Ocean Explorer</h3>
+                            <p class="game-description">Dive into the depths of the unknown. Discover breathtaking
+                                underwater worlds and uncover the secrets of the deep sea.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$39.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="sports">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?auto=format&fit=crop&w=600&q=80"
+                                alt="Street Champions">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                                <i class="fab fa-xbox"></i>
+                            </div>
+                            <h3>Street Champions</h3>
+                            <p class="game-description">Rule the streets with style. Experience fast-paced urban sports
+                                action with realistic physics and competitive multiplayer.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$59.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more">
+                    <button class="btn btn-outline" data-loadmore="games">Load More Games <i
+                            class="fas fa-arrow-down"></i></button>
+                </div>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="consoles">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Consoles</button>
+                    <button class="filter-btn" data-filter="playstation">PlayStation</button>
+                    <button class="filter-btn" data-filter="xbox">Xbox</button>
+                    <button class="filter-btn" data-filter="nintendo">Nintendo</button>
+                    <button class="filter-btn" data-filter="pc">PC</button>
+                </div>
+
+                <div class="games-grid" id="consolesGrid">
+                    <div class="game-card" data-category="playstation">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1200&q=90"
+                                alt="PlayStation 5">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge hot">Hot</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-playstation"></i>
+                            </div>
+                            <h3>PlayStation 5</h3>
+                            <p class="game-description">Next-gen gaming powerhouse with ultra-fast SSD, stunning 4K
+                                graphics, and immersive haptic feedback. Experience gaming evolved.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$499.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="xbox">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=1200&q=90"
+                                alt="Xbox Series X">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge new">New</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-xbox"></i>
+                            </div>
+                            <h3>Xbox Series X</h3>
+                            <p class="game-description">The most powerful Xbox ever. Play thousands of games with 12
+                                teraflops of processing power and lightning-fast load times.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$499.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="nintendo">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1200&q=90"
+                                alt="Nintendo Switch OLED">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-nintendo-switch"></i>
+                            </div>
+                            <h3>Nintendo Switch OLED</h3>
+                            <p class="game-description">Vibrant 7-inch OLED screen with enhanced audio. Play at home or
+                                on-the-go with this versatile gaming console from Nintendo.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$349.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="game-card" data-category="pc">
+                        <div class="game-image">
+                            <img src="https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=1200&q=90"
+                                alt="Steam Deck">
+                            <div class="game-overlay">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <span class="badge sale">-20%</span>
+                        </div>
+                        <div class="game-info">
+                            <div class="game-platform">
+                                <i class="fab fa-steam"></i>
+                                <i class="fab fa-windows"></i>
+                            </div>
+                            <h3>Steam Deck</h3>
+                            <p class="game-description">Portable PC gaming powerhouse. Access your entire Steam library
+                                anywhere with this revolutionary handheld gaming device.</p>
+                            <div class="game-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.4</span>
+                            </div>
+                            <div class="game-price">
+                                <span class="current-price">$399.99</span>
+                                <span class="original-price">$499.99</span>
+                            </div>
+                            <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more">
+                    <button class="btn btn-outline" data-loadmore="consoles">Load More Consoles <i
+                            class="fas fa-arrow-down"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-banner">
+        <div class="banner-content">
+            <span class="banner-tag">Limited Time Offer</span>
+            <h2>Get 20% Off Your First Purchase</h2>
+            <p>Sign up for our newsletter and receive exclusive deals</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email">
+                <button class="btn">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-gamepad"></i>
+                        <h2> <span>TANGO</span>LINE</h2>
+                    </div>
+                    <p>Your ultimate destination for premium gaming products and the latest releases.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Games</a></li>
+                        <li><a href="#">Consoles</a></li>
+                        <li><a href="#">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> support@gamehub.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Gaming Street</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights are reserved.</p>
+        </footer>
+
+        <script>
+            const navLinks = document.getElementById("navLinks");
+
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu() {
+                navLinks.style.right = "-280px";
+            }
+
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let slideInterval;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+
+            function changeSlide(direction) {
+                showSlide(currentSlide + direction);
+                resetInterval();
+            }
+
+            function goToSlide(n) {
+                showSlide(n);
+                resetInterval();
+            }
+
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => changeSlide(1), 5000);
+            }
+
+            slideInterval = setInterval(() => changeSlide(1), 5000);
+
+            function setupFilters(panelEl) {
+                const filterBtns = panelEl.querySelectorAll('.filter-btn');
+
+                filterBtns.forEach(btn => {
+                    if (btn.hasListener) {
+                        return;
+                    }
+
+                    btn.hasListener = true;
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        const filter = btn.dataset.filter;
+                        const cards = panelEl.querySelectorAll('.game-card');
+
+                        cards.forEach(card => {
+                            if (filter === 'all' || card.dataset.category === filter) {
+                                card.style.display = 'block';
+                                card.style.animation = 'fadeIn 0.5s ease';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+
+            function activateProductsTab(tab) {
+                const panels = document.querySelectorAll('.tab-panel');
+                panels.forEach(panel => {
+                    if (panel.dataset.tabPanel === tab) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            }
+
+            function setupNavProductsDropdown() {
+                const dropdown = document.querySelector('.nav-dropdown');
+                if (!dropdown) {
+                    return;
+                }
+
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                const menuLinks = dropdown.querySelectorAll('.dropdown-menu a[data-products-tab]');
+
+                if (toggle && !toggle.hasListener) {
+                    toggle.hasListener = true;
+                    toggle.addEventListener('click', (e) => {
+                        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                        if (!isMobile) {
+                            return;
+                        }
+
+                        e.preventDefault();
+                        dropdown.classList.toggle('open');
+                    });
+                }
+
+                menuLinks.forEach(link => {
+                    if (link.hasListener) {
+                        return;
+                    }
+
+                    link.hasListener = true;
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+
+                        const tab = link.dataset.productsTab;
+                        activateProductsTab(tab);
+
+                        const target = document.querySelector('#products');
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+
+                        dropdown.classList.remove('open');
+                        hideMenu();
+                    });
+                });
+
+                if (!document.body.hasProductsDropdownListener) {
+                    document.body.hasProductsDropdownListener = true;
+                    document.addEventListener('click', (e) => {
+                        if (!dropdown.contains(e.target)) {
+                            dropdown.classList.remove('open');
+                        }
+                    });
+                }
+            }
+
+            function setupWishlist() {
+                const wishlistBtns = document.querySelectorAll('.add-wishlist');
+                wishlistBtns.forEach(btn => {
+                    if (!btn.hasListener) {
+                        btn.hasListener = true;
+                        btn.addEventListener('click', function () {
+                            this.classList.toggle('active');
+                            const icon = this.querySelector('i');
+                            if (this.classList.contains('active')) {
+                                icon.style.color = '#ff6b6b';
+                            } else {
+                                icon.style.color = '';
+                            }
+                        });
+                    }
+                });
+            }
+
+            function setupCartButtons() {
+                const cartBtns = document.querySelectorAll('.btn-cart');
+                cartBtns.forEach(btn => {
+                    if (!btn.hasListener) {
+                        btn.hasListener = true;
+                        btn.addEventListener('click', function () {
+                            const originalText = this.innerHTML;
+                            this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                            this.style.background = '#4CAF50';
+                            setTimeout(() => {
+                                this.innerHTML = originalText;
+                                this.style.background = '';
+                            }, 2000);
+                        });
+                    }
+                });
+            }
+
+            const extraGames = [
+                {
+                    name: 'Call of Duty: Warzone',
+                    category: 'action',
+                    image: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-playstation', 'fab fa-xbox', 'fab fa-steam'],
+                    rating: 4.8,
+                    price: 'Free to Play',
+                    badge: 'hot',
+                    description: 'Intense free-to-play battle royale experience. Drop in, loot, and fight your way to victory in this action-packed shooter.'
+                },
+                {
+                    name: 'Apex Legends',
+                    category: 'action',
+                    image: 'https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-playstation', 'fab fa-xbox', 'fab fa-steam'],
+                    rating: 4.6,
+                    price: 'Free to Play',
+                    badge: 'hot',
+                    description: 'Master unique Legends with powerful abilities in this fast-paced team-based battle royale. Every match is a new adventure.'
+                },
+                {
+                    name: 'GTA V Online',
+                    category: 'action',
+                    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-playstation', 'fab fa-xbox', 'fab fa-steam'],
+                    rating: 4.9,
+                    price: '$29.99',
+                    originalPrice: '$59.99',
+                    badge: 'sale',
+                    description: 'Explore Los Santos in this massive open-world crime saga. Build your criminal empire with endless possibilities.'
+                },
+                {
+                    name: 'Minecraft',
+                    category: 'adventure',
+                    image: 'https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-playstation', 'fab fa-xbox', 'fab fa-windows'],
+                    rating: 4.9,
+                    price: '$26.99',
+                    badge: 'new',
+                    description: 'Build, explore, and survive in infinite procedurally generated worlds. Your imagination is the only limit.'
+                },
+
+                {
+                    name: 'Valorant',
+                    category: 'action',
+                    image: 'https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-windows'],
+                    rating: 4.7,
+                    price: 'Free to Play',
+                    badge: 'hot',
+                    description: 'Tactical 5v5 character-based shooter where precise gunplay meets unique abilities. Outsmart and outshoot your opponents.'
+                },
+                {
+                    name: 'Elden Ring',
+                    category: 'rpg',
+                    image: 'https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=600&q=80',
+                    platforms: ['fab fa-playstation', 'fab fa-xbox', 'fab fa-steam'],
+                    rating: 5.0,
+                    price: '$49.99',
+                    originalPrice: '$69.99',
+                    badge: 'sale',
+                    description: 'Epic fantasy action RPG. Explore vast lands filled with danger and wonder in this critically acclaimed masterpiece.'
+                },
+
+            ];
+
+            const extraConsoles = [
+                {
+                    name: 'PlayStation 5 Digital',
+                    category: 'playstation',
+                    image: 'https://images.unsplash.com/photo-1607853202273-797f1c22a38e?auto=format&fit=crop&w=1200&q=90',
+                    platforms: ['fab fa-playstation'],
+                    rating: 4.7,
+                    price: '$449.99',
+                    badge: 'new',
+                    description: 'All-digital PS5 console without disc drive. Same incredible power at a lower price point for digital game lovers.'
+                },
+                {
+                    name: 'Xbox Series S',
+                    category: 'xbox',
+                    image: 'https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=1200&q=90',
+                    platforms: ['fab fa-xbox'],
+                    rating: 4.5,
+                    price: '$299.99',
+                    badge: '',
+                    description: 'Compact next-gen console delivering amazing performance. Perfect for 1080p gaming with exceptional value.'
+                },
+
+                {
+                    name: 'Gaming PC Bundle',
+                    category: 'pc',
+                    image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=1200&q=90',
+                    platforms: ['fab fa-windows', 'fab fa-steam'],
+                    rating: 4.6,
+                    price: '$999.99',
+                    originalPrice: '$1199.99',
+                    badge: 'sale',
+                    description: 'Complete gaming PC setup with high-performance components. Includes keyboard, mouse, and premium gaming monitor.'
+                }
+            ];
+
+            const productsState = {
+                games: {
+                    loadedBatches: 0,
+                    perBatch: 4,
+                    gridId: 'gamesGrid',
+                    data: extraGames,
+                    emptyText: 'No More Games'
+                },
+                consoles: {
+                    loadedBatches: 0,
+                    perBatch: 4,
+                    gridId: 'consolesGrid',
+                    data: extraConsoles,
+                    emptyText: 'No More Consoles'
+                }
+            };
+
+            function createProductCard(product) {
+                const stars = [];
+                const fullStars = Math.floor(product.rating);
+                const hasHalf = product.rating % 1 !== 0;
+
+                for (let i = 0; i < fullStars; i++) {
+                    stars.push('<i class="fas fa-star"></i>');
+                }
+                if (hasHalf) {
+                    stars.push('<i class="fas fa-star-half-alt"></i>');
+                }
+                for (let i = stars.length; i < 5; i++) {
+                    stars.push('<i class="far fa-star"></i>');
+                }
+
+                const platformIcons = product.platforms.map(p => `<i class="${p}"></i>`).join('');
+                const badgeHtml = product.badge ? `<span class="badge ${product.badge}">${product.badge === 'sale' ? '-40%' : product.badge === 'hot' ? 'Hot' : 'New'}</span>` : '';
+                const priceHtml = product.originalPrice
+                    ? `<span class="current-price">${product.price}</span><span class="original-price">${product.originalPrice}</span>`
+                    : `<span class="current-price">${product.price}</span>`;
+
+                return `
+                <div class="game-card" data-category="${product.category}" style="animation: fadeIn 0.5s ease;">
+                    <div class="game-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="game-overlay">
+                            <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            <button class="add-wishlist"><i class="fas fa-heart"></i></button>
+                        </div>
+                        ${badgeHtml}
+                    </div>
+                    <div class="game-info">
+                        <div class="game-platform">${platformIcons}</div>
+                        <h3>${product.name}</h3>
+                        <p class="game-description">${product.description || ''}</p>
+                        <div class="game-rating">
+                            ${stars.join('')}
+                            <span>${product.rating}</span>
+                        </div>
+                        <div class="game-price">${priceHtml}</div>
+                        <button class="btn-cart"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    </div>
+                </div>
+            `;
+            }
+
+            function loadMoreProducts(type) {
+                const state = productsState[type];
+                const grid = document.getElementById(state.gridId);
+                const loadMoreBtn = document.querySelector(`.load-more .btn[data-loadmore="${type}"]`);
+                const startIndex = state.loadedBatches * state.perBatch;
+                const endIndex = Math.min(startIndex + state.perBatch, state.data.length);
+
+                if (startIndex >= state.data.length) {
+                    loadMoreBtn.innerHTML = state.emptyText;
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.style.opacity = '0.5';
+                    loadMoreBtn.style.cursor = 'not-allowed';
+                    return;
+                }
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    grid.insertAdjacentHTML('beforeend', createProductCard(state.data[i]));
+                }
+
+                state.loadedBatches++;
+
+                const panelEl = document.querySelector(`.tab-panel[data-tab-panel="${type}"]`);
+                setupWishlist();
+                setupCartButtons();
+                setupFilters(panelEl);
+
+                if (state.loadedBatches * state.perBatch >= state.data.length) {
+                    loadMoreBtn.innerHTML = state.emptyText;
+                    loadMoreBtn.disabled = true;
+                    loadMoreBtn.style.opacity = '0.5';
+                    loadMoreBtn.style.cursor = 'not-allowed';
+                }
+            }
+
+            document.querySelectorAll('.load-more .btn[data-loadmore]').forEach(btn => {
+                btn.addEventListener('click', () => loadMoreProducts(btn.dataset.loadmore));
+            });
+
+            setupNavProductsDropdown();
+            document.querySelectorAll('.tab-panel').forEach(panel => setupFilters(panel));
+            setupWishlist();
+            setupCartButtons();
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            /* ===== NAV MENU ===== */
+            function showMenu() {
+                document.getElementById("navLinks").style.right = "0";
+            }
+            function hideMenu() {
+                document.getElementById("navLinks").style.right = "-280px";
+            }
+
+            /* ===== CART HELPERS ===== */
+            function getCart() {
+                return JSON.parse(localStorage.getItem("cartItems")) || [];
+            }
+
+            function saveCart(cart) {
+                localStorage.setItem("cartItems", JSON.stringify(cart));
+            }
+
+            function updateCartCount() {
+                const countEl = document.getElementById("cartCount");
+                if (countEl) countEl.innerText = getCart().length;
+            }
+
+            /* ===== ADD TO CART (FIXED – NO DOUBLE ADD) ===== */
+            document.addEventListener("click", function (e) {
+                const btn = e.target.closest(".btn-cart");
+                if (!btn) return;
+
+                const card = btn.closest(".game-card");
+                if (!card) return;
+
+                const name = card.querySelector("h3")?.innerText || "Product";
+                let priceText = card.querySelector(".current-price")?.innerText || "$0.00";
+
+                if (priceText.toLowerCase().includes("free")) {
+                    priceText = "$0.00";
+                }
+
+                const cart = getCart();
+                cart.push({
+                    id: Date.now(),
+                    name: name,
+                    price: priceText
+                });
+
+                saveCart(cart);
+                updateCartCount();
+
+                // button feedback
+                const original = btn.innerHTML;
+                btn.innerHTML = "<i class='fas fa-check'></i> Added";
+                btn.style.background = "#4CAF50";
+
+                setTimeout(() => {
+                    btn.innerHTML = original;
+                    btn.style.background = "";
+                }, 1000);
+            });
+
+            /* ===== PAGE LOAD ===== */
+            window.addEventListener("load", updateCartCount);
+
+
+
+        </script>
+</body>
+
+</html>

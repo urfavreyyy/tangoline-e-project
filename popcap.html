@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexon</title>
+  <link rel="icon" href="image.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+  /* ================= RESET ================= */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #0d0d0d;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ================= NAVBAR ================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .logo i {
+    font-size: 28px;
+    color: #ff6b6b;
+  }
+
+  .logo span {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .logo span span {
+    color: #ff6b6b;
+  }
+
+  .nav-links ul {
+    display: flex;
+    list-style: none;
+  }
+
+  .nav-links ul li {
+    margin: 0 15px;
+    position: relative;
+  }
+
+  .nav-links ul li a {
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  /* ================= NAV LINK UNDERLINE ================= */
+  .nav-links ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b6b, #ff9a9a);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links ul li a:hover::after,
+  .nav-links ul li a.active::after {
+    width: 100%;
+  }
+
+  .nav-links ul li a:hover,
+  .nav-links ul li a.active {
+    color: #ff6b6b;
+  }
+
+  /* ================= TOGGLE ICONS ================= */
+  .fa-bars,
+  .fa-times {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  /* ================= SLIDER ================= */
+  .slide-showcase {
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .slide-showcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .slide-showcase h2,
+  .slide-showcase p {
+    position: relative;
+    z-index: 2;
+  }
+
+  .slide-showcase h2 {
+    font-size: 48px;
+    text-transform: uppercase;
+  }
+
+  .slide-showcase p {
+    margin-top: 10px;
+  }
+
+  .slide-showcase p a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .slide-showcase p span {
+    color: #ff6b6b;
+  }
+
+  /* ================= PRODUCTS ================= */
+  .products-grid {
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 0 20px;
+  }
+
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  /* ================= PRODUCT CARD ================= */
+  .products-items {
+    background: #111;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: 0.35s ease;
+  }
+
+  .products-text a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .products-text a h3 {
+    color: #fff;
+  }
+
+  .products-text a:hover h3 {
+    color: #ff6b6b;
+  }
+
+  .products-items:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px rgba(255, 107, 107, 0.35);
+  }
+
+  .products-items img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: 0.4s ease;
+  }
+
+  .products-items:hover img {
+    transform: scale(1.08);
+  }
+
+  .products-text {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .products-text h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  .products-text p {
+    font-size: 14px;
+    color: #ccc;
+    flex-grow: 1;
+  }
+
+  /* ================= BUTTON ================= */
+  .button-btn {
+    margin-top: 20px;
+    align-self: center;
+    padding: 12px 34px;
+    background: #ff6b6b;
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .button-btn:hover {
+    background: #ff4b4b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(255, 107, 107, 0.6);
+  }
+
+  /* ================= DETAILS BOX ================= */
+  .products-text.details {
+    grid-column: 1 / -1;
+    background: #111;
+    padding: 30px;
+    border-radius: 16px;
+  }
+
+  .products-text.details h3 {
+    color: #ff6b6b;
+    margin-bottom: 12px;
+  }
+
+  .products-text.details p {
+    color: #bbb;
+  }
+
+  /* ================= FOOTER ================= */
+  footer {
+    background: #000;
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer p {
+    color: #ccc;
+    font-size: 14px;
+  }
+
+  footer a {
+    color: #ff6b6b;
+    text-decoration: none;
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width: 1024px) {
+    .products-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      right: -100%;
+      top: 0;
+      width: 250px;
+      height: 100vh;
+      background: #111;
+      padding: 60px 30px;
+      transition: 0.3s;
+    }
+
+    .nav-links ul {
+      flex-direction: column;
+    }
+
+    .nav-links ul li {
+      margin: 15px 0;
+    }
+
+    .fa-bars,
+    .fa-times {
+      display: block;
+    }
+
+    .products-container {
+      grid-template-columns: 1fr;
+    }
+
+    .slide-showcase h2 {
+      font-size: 32px;
+    }
+  }
+</style>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <div class="slide-showcase" style="background: url('popcap.jpeg') fixed; background-size: cover;">
+    <h2>Popcap Games</h2>
+    <p><a href="index">Home</a> / <a href="brands">Brands</a> / <span>Popcap</span></p>
+  </div>
+  <!-- Slide -->
+<div class="products-grid">
+    <div class="products-container">
+      <div class="products-items">
+        <img src="bloodstone.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Blood Stone</h3></a>
+          <p>James Bond 007: Blood Stone is a third-person shooter video game, developed by Bizarre Creations and published by Activision. The game was initial released on November 2, 2010.</p>
+          <a href="downloads/JamesBond007.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+
+      <div class="products-items">
+        <img src="destiny.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Destiny</h3></a>
+          <p>Destiny is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. This game was officially released worldwide on September 9, 2014.</p>
+          <a href="downloads/Destiny.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+
+      <div class="products-items">
+        <img src="spiderman.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Spiderman</h3></a>
+          <p>Spider-Man is an action-adventure video game based on the Marvel Comics comic book series The Amazing Spider-Man, which features the fictional superhero Spider-Man by activision.</p>
+          <a href="downloads/Spiderman.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+
+      <div class="products-items">
+        <img src="callofdutymobile.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Call of Duty Mobile</h3></a>
+          <p>Call of Duty: Mobile is a free-to-play first-person shooter game developed by Tencent Games and published by Activision. Call of Duty series in the definitive first-person action experience on mobile.</p>
+          <a href="downloads/pubg.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+
+      <div class="products-items">
+        <img src="sekiro.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Sekiro</h3></a>
+          <p>Sekiro: Shadows Die Twice is an action-adventure video game developed by FromSoftware and published by Activision. This game was officially released on March 22, 2019.</p>
+          <a href="downloads/Zero.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+      
+      <div class="products-items">
+        <img src="crash-team.jpg" alt="">
+        <div class="products-text">
+          <a href="#"><h3>Crash Team Racing</h3></a>
+          <p>Crash Team Racing Nitro-Fueled is a kart racing game developed by Beenox and published by Activision. Single-player, Multiplayer modes. This game was officially released on June 21, 2019.</p>
+          <a href="downloads/pubg.docx" class="button-btn" style="display: inline-block; margin-top: 20px;">- Download -</a>
+        </div>
+      </div>
+    </div>
+    <div class="products-container">
+      <div class="products-text details">
+        <h3 style="text-transform: uppercase; line-height: 20px;">PopCap Games.</h3>
+        <p>PopCap Games, Inc. is an American video game developer based in Seattle. The company was founded in 2000 by John Vechey, Brian Fiete and Jason Kapalka. It was acquired by Electronic Arts in July 2011.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights are reserved.</p>
+  </footer>
+
+  <!-- JS for Toggle Menu -->
+  <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+      navLinks.style.right = "0";
+    }
+    function hideMenu() {
+      navLinks.style.right = "-100%";
+    }
+  </script>
+
+</body>
+
+</html>

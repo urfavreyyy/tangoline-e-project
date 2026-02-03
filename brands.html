@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangoline - Brands</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="image.png">
+    <style>
+        /* ================= RESET ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0d0d0d;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(0, 0, 0, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 28px;
+            color: #ff6b6b;
+        }
+
+        .logo span {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .logo span span {
+            color: #ff6b6b;
+        }
+
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-links ul li a {
+            color: #ccc;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #ff9a9a);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links ul li a:hover,
+        .nav-links ul li a.active {
+            color: #ff6b6b;
+        }
+
+        .nav-links ul li a:hover::after,
+        .nav-links ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Hamburger icons */
+        .fa-bars,
+        .fa-times {
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            display: none;
+        }
+
+        /* Desktop hide */
+        @media(min-width:769px) {
+
+            .fa-bars,
+            .fa-times {
+                display: none;
+            }
+        }
+
+        /* Mobile show */
+        @media(max-width:768px) {
+            .fa-bars {
+                display: block;
+            }
+
+            .fa-times {
+                display: block;
+                position: absolute;
+                top: 25px;
+                right: 25px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -280px;
+                /* hidden by default */
+                width: 280px;
+                height: 100vh;
+                background: #111;
+                flex-direction: column;
+                padding: 80px 20px;
+                transition: 0.4s;
+                z-index: 2000;
+            }
+
+            .nav-links ul {
+                flex-direction: column;
+                margin-top: 50px;
+            }
+
+            .nav-links ul li {
+                margin: 15px 0;
+            }
+        }
+
+        /* ================= SLIDER ================= */
+        .slide-showcase {
+            height: 85vh;
+            background: url('bloodstone.jpg') center/cover fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+        }
+
+        .slide-showcase::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .slide-showcase h2,
+        .slide-showcase p {
+            position: relative;
+            z-index: 2;
+        }
+
+        .slide-showcase h2 {
+            font-size: 55px;
+            text-transform: uppercase;
+        }
+
+        .slide-showcase p {
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        .slide-showcase p a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .slide-showcase p span {
+            color: #ff6b6b;
+        }
+
+        /* ================= BRANDS GRID ================= */
+        .brands-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            justify-items: center;
+            margin-bottom: 50px;
+            padding: 50px 20px;
+        }
+
+        .brand-card {
+            background: #fa6d79;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 300px;
+            height: 280px;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px #ec6161;
+        }
+
+        .brand-card img {
+            width: 100%;
+            max-width: 260px;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: auto;
+        }
+
+        .view-btn:hover {
+            background: #ff4a7a;
+            transform: translateY(-3px);
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media(max-width: 992px) {
+            .brands-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .brands-container {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-card img {
+                max-width: 90%;
+            }
+        }
+
+        @media(max-width:768px) {
+            .slide-showcase h2 {
+                font-size: 35px;
+            }
+
+            .slide-showcase p {
+                font-size: 14px;
+            }
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #000;
+        }
+
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+    </style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="brands.html" class="active">Brands</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </div>
+
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+    <div class="slide-showcase">
+        <h2>Tangoline Brands</h2>
+        <p><a href="home.html">Home</a> / <span>Brands</span></p>
+    </div>
+
+    <div class="brands-grid">
+        <div class="brands-container">
+            <div class="brand-card">
+                <img src="ubisoft-logo.png" alt="Ubisoft Logo">
+                <a href="ubisoft.html" class="view-btn">View</a>
+            </div>
+            <div class="brand-card">
+                <img src="bandai-logo.png" alt="Bandai Logo">
+                <a href="bandai.html" class="view-btn">View</a>
+            </div>
+            <div class="brand-card">
+                <img src="activision-logo.png" alt="Activision Logo">
+                <a href="activison.html" class="view-btn">View</a>
+            </div>
+            <div class="brand-card">
+                <img src="bandai-logo.png" alt="Bandai Logo">
+                <a href="bandai.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="epic-logo1.png" alt="Epic Logo">
+                <a href="epicgames.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="easport-logo.jpg" alt="EA Sports Logo">
+                <a href="easport.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="disney-logo.jpg" alt="Disney Logo">
+                <a href="disnep.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="nexon-logo.jpg" alt="Nexon Logo">
+                <a href="nexon.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="sega-logo.png" alt="Sega Logo">
+                <a href="sega.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="popcap-logo.png" alt="Popcap Logo">
+                <a href="popcap.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="tencent-logo.png" alt="Tencent Logo">
+                <a href="tencent.html" class="view-btn">View</a>
+            </div>
+
+            <div class="brand-card">
+                <img src="sims-logo.png" alt="Sims Logo">
+                <a href="thesims.html" class="view-btn">View</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights are reserved.</p>
+    </footer>
+
+    <script>
+        const navLinks = document.getElementById("navLinks");
+        function showMenu() { navLinks.style.right = "0"; }
+        function hideMenu() { navLinks.style.right = "-280px"; }
+
+        // close menu on link click
+        document.querySelectorAll('.nav-links ul li a').forEach(link => {
+            link.addEventListener('click', hideMenu);
+        });
+    </script>
+
+</body>
+
+</html>

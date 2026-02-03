@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disney</title>
+  <link rel="icon" href="image.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      background: rgba(0, 0, 0, 0.95);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo i {
+      font-size: 28px;
+      color: #ff6b6b;
+    }
+
+    .logo span {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span span {
+      color: #ff6b6b;
+    }
+
+    .nav-links ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links ul li {
+      margin: 0 15px;
+      position: relative;
+    }
+
+    .nav-links ul li a {
+      color: #ccc;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+      /* <-- color transition */
+    }
+
+    .nav-links ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      /* underline position */
+      left: 0;
+      width: 0%;
+      height: 2px;
+      /* thickness of line */
+      background: linear-gradient(90deg, #ff6b6b, #ff9a9a);
+      transition: width 0.3s ease;
+      /* <-- line animation */
+    }
+
+    .nav-links ul li a:hover,
+    .nav-links ul li a.active {
+      color: #ff6b6b;
+    }
+
+    .nav-links ul li a:hover::after,
+    .nav-links ul li a.active::after {
+      width: 100%;
+      /* underline expands on hover */
+    }
+
+
+    .fa-bars,
+    .fa-times {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    @media(max-width:768px) {
+
+      .fa-bars,
+      .fa-times {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        background: #111;
+        flex-direction: column;
+        padding: 60px 30px;
+        transition: right 0.3s ease;
+      }
+
+      .nav-links ul {
+        flex-direction: column;
+      }
+
+      .nav-links ul li {
+        margin: 15px 0;
+      }
+    }
+
+    /* ===== SLIDER ===== */
+    .slide-showcase {
+      height: 80vh;
+      background: url('destiny.jpg') center/cover fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 70px;
+      position: relative;
+    }
+
+    .slide-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .slide-showcase h2,
+    .slide-showcase p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .slide-showcase h2 {
+      font-size: 48px;
+      text-transform: uppercase;
+    }
+
+    .slide-showcase p {
+      margin-top: 10px;
+    }
+
+    .slide-showcase p a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .slide-showcase p span {
+      color: #ff6b6b;
+    }
+
+    /* ===== PRODUCTS GRID ===== */
+    .products-grid {
+      max-width: 1200px;
+      margin: 90px auto;
+      padding: 0 20px;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .products-items {
+      background: #111;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.35s ease;
+    }
+
+    .products-items img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .products-items:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 35px rgba(255, 107, 107, 0.35);
+    }
+
+    .products-text {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .products-text h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ff6b6b;
+      /* pink color, no blue line */
+    }
+
+    .products-text p {
+      font-size: 14px;
+      color: #ccc;
+      flex-grow: 1;
+    }
+
+    .button-btn {
+      margin-top: 20px;
+      align-self: center;
+      padding: 12px 34px;
+      background: #ff6b6b;
+      color: #fff;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .button-btn:hover {
+      background: #ff4b4b;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(255, 107, 107, 0.6);
+    }
+
+    .products-text.details {
+      grid-column: 1 / -1;
+      background: #111;
+      padding: 30px;
+      border-radius: 16px;
+    }
+
+    .products-text.details h3 {
+      color: #ff6b6b;
+      margin-bottom: 12px;
+    }
+
+    .products-text.details p {
+      color: #bbb;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: #000;
+    }
+
+    footer a {
+      color: #ff6b6b;
+      text-decoration: none;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:1024px) {
+      .products-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px) {
+      .products-container {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-showcase h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo"><a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a></div>
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="brands.html">Brands</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="order.html">Order</a></li>
+      </ul>
+    </div>
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+
+  <!-- SLIDER -->
+  <div class="slide-showcase">
+    <h2>Disney Games</h2>
+    <p><a href="index.html">Home</a> / <a href="brands.html">Brands</a> / <span>Disney</span></p>
+  </div>
+
+  <!-- PRODUCTS GRID -->
+  <div class="products-grid">
+    <div class="products-container">
+      <div class="products-items">
+        <img src="bloodstone.jpg" alt="">
+        <div class="products-text">
+          <h3>Blood Stone</h3>
+          <p>James Bond 007: Blood Stone is a third-person shooter video game released in 2010.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="destiny.jpg" alt="">
+        <div class="products-text">
+          <h3>Destiny</h3>
+          <p>Destiny is an online-only multiplayer first-person shooter video game released in 2014.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="spiderman.jpg" alt="">
+        <div class="products-text">
+          <h3>Spiderman</h3>
+          <p>Spider-Man is an action-adventure video game based on Marvel comics.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="callofdutymobile.jpg" alt="">
+        <div class="products-text">
+          <h3>Call of Duty Mobile</h3>
+          <p>Free-to-play first-person shooter game developed by Tencent Games.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="sekiro.jpg" alt="">
+        <div class="products-text">
+          <h3>Sekiro</h3>
+          <p>Sekiro: Shadows Die Twice is an action-adventure video game released in 2019.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+      <div class="products-items">
+        <img src="crash-team.jpg" alt="">
+        <div class="products-text">
+          <h3>Crash Team Racing</h3>
+          <p>Crash Team Racing Nitro-Fueled is a kart racing game released in 2019.</p>
+          <a href="#" class="button-btn">- Download -</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-container">
+      <div class="products-text details">
+        <h3>Disney Entertainment</h3>
+        <p>The Walt Disney Company is an American multinational mass media and entertainment conglomerate headquartered
+          in Burbank, California.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights reserved.</p>
+  </footer>
+
+  <script>
+    const navLinks = document.getElementById("navLinks");
+    function showMenu() { navLinks.style.right = "0"; }
+    function hideMenu() { navLinks.style.right = "-100%"; }
+    document.querySelectorAll('.nav-links ul li a').forEach(link => {
+      link.addEventListener('click', hideMenu);
+    });
+  </script>
+</body>
+
+</html>

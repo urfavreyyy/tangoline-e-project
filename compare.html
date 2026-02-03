@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Product Comparison - Tangoline</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="image.png">
+</head>
+<style>
+    /* ===== RESET ===== */
+  * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #0d0d0d;
+        color: #fff;
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: auto;
+        padding: 0 20px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background: rgba(0, 0, 0, 0.95);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .logo a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .logo i {
+        font-size: 28px;
+        color: #ff6b6b;
+    }
+
+    .logo span {
+        font-size: 22px;
+        font-weight: 800;
+    }
+
+    .logo span span {
+        color: #ff6b6b;
+    }
+
+    /* NAV LINKS */
+    .nav-links ul {
+        display: flex;
+        list-style: none;
+    }
+
+    .nav-links ul li {
+        margin: 0 15px;
+    }
+
+    .nav-links ul li a {
+        color: #ccc;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, #ff6b6b, #ff9a9a);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links ul li a:hover,
+    .nav-links ul li a.active {
+        color: #ff6b6b;
+    }
+
+    .nav-links ul li a:hover::after,
+    .nav-links ul li a.active::after {
+        width: 100%;
+    }
+
+    .fa-bars,
+    .fa-times {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+     /* MOBILE MENU ICONS */
+    @media (max-width: 768px) {
+
+        .fa-bars,
+        .fa-times {
+            display: block;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 60px;
+            right: -100%;
+            width: 100%;
+            height: calc(100vh - 60px);
+            background: #000;
+            transition: right 0.3s ease;
+        }
+    }
+
+
+/* ===== HEADER ===== */
+header {
+  background: #000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.head-container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff6b6b;
+}
+
+/* ===== SLIDER / SHOWCASE ===== */
+.slide-showcase {
+  margin-top: 90px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-position: center;
+}
+
+.slide-showcase h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.slide-showcase p {
+  font-size: 14px;
+}
+
+.slide-showcase a {
+  color: #ff6b6b;
+  text-decoration: none;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products-grid {
+  max-width: 1400px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.products-items {
+  background: #1e1e1e;
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.products-items:hover {
+  transform: translateY(-6px);
+}
+
+.products-items h4 {
+  margin-bottom: 15px;
+  color: #ff6b6b;
+  font-size: 18px;
+}
+
+.sel {
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+.products-items img {
+  width: 100%;
+  max-width: 260px;
+  height: 200px;
+  object-fit: contain;
+  margin: 20px auto;
+  display: block;
+}
+
+
+.products-text h3 {
+  margin-bottom: 10px;
+  color: #ff6b6b;
+}
+
+.products-text p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.sel {
+  width: 100%;
+  max-width: 260px;
+  padding: 10px 14px;
+  background: #000;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+.products-text h3 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+}
+
+.products-text p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* ===== BUTTON ===== */
+.button-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: linear-gradient(90deg, #ff6b6b, #ff9a9a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.button-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 15px;
+}
+
+footer a {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .slide-showcase h2 {
+    font-size: 28px;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-items img {
+    height: 180px;
+  }
+
+  .slide-showcase {
+    min-height: 240px;
+  }
+}
+@media (max-width: 768px) {
+  .products-container {
+    grid-template-columns: 1fr;
+  }
+
+  .products-items {
+    padding: 22px 16px;
+  }
+
+  .products-items img {
+    height: 180px;
+  }
+}
+
+
+</style>
+    <body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">
+                    <i class="fas fa-gamepad"></i>
+                    <span>TANG<span>OLINE</span></span>
+                </a>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="brands.html">Brands</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="order.html">Order</a></li>
+                </ul>
+            </div>
+        </nav>
+
+	<div class="slide-showcase" style="background: url('images89.jpeg') fixed; background-size: cover;">
+		<h2>Tangoline Comparison</h2>
+		<p><a href="index">Home</a> / <span>Comparison</span></p>
+	</div>
+
+	<div class="products-grid" style="user-select: none;">
+		<h5 id="error" style="color: red; text-align: center; margin-bottom: 20px;"></h5>
+		<div class="products-container">
+			<div class="products-items">
+				<h4>Item 1</h4>
+				<select class="sel" id="it1" onchange="item1()" style="border: 1px solid #000;padding: 10px 20px;margin-bottom: 20px;">
+					<option hidden="true">SELECT</option>
+					<option>Casio Loopy</option>
+					<option>Nintendo 64</option>
+					<option>Playstation 2</option>
+					<option>Powkiddy X18</option>
+					<option>Playstation 4</option>
+					<option>Sega Saturn</option>
+				</select>
+				<br>
+				<img src="#" alt="" id="img1">
+				<div class="products-text">
+					<h3 id="pn1" ></h3>
+					<p id="desc1"></p>
+					<p id="pp1"></p>
+					<a href="#" class="button-btn" id="compare-btn-1" style="display: none;margin-top: 20px;">- Buy Now -</a>
+				</div>
+			</div>
+
+			<div class="products-items">
+				<h4>Item 2</h4>
+				<select class="sel" id="it2" onchange="item2()" style="border: 1px solid #000;padding: 10px 20px;margin-bottom: 20px;">
+					<option hidden="true">SELECT</option>
+					<option>Casio Loopy</option>
+					<option>Nintendo 64</option>
+					<option>Playstation 2</option>
+					<option>Powkiddy X18</option>
+					<option>Playstation 4</option>
+					<option>Sega Saturn</option>
+				</select>
+				<br>
+				<img src="#" alt="" id="img2">
+				<div class="products-text">
+					<h3 id="pn2" ></h3>
+					<p id="desc2"></p>
+					<p id="pp2"></p>
+					<a href="#" class="button-btn" id="compare-btn-2" style="display: none;margin-top: 20px;">- Buy Now -</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p><a href="index">Aptech Project Tangoline</a> &copy; - 2026 All rights are reserved.</p>
+	</footer>
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/compare.js"></script>
+</html>
+</body>

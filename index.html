@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tangoloine-Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="image.png">
+</head>
+<style>
+
+</style>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#"><i class="fas fa-gamepad"></i><span>TANG<span>OLINE</span></span></a>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="brands.html">Brands</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </div>
+
+        <!-- hamburger -->
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+
+    <div class="hero">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('image1.jpg');">
+                <div class="slide-content">
+                    <h1>Do You <span>Like</span> It?</h1>
+                    <p>Wanna <span>Download</span> It? </p>
+                    <a href="#games" class="btn">- Download -<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('image2.jpg');">
+                <div class="slide-content">
+                    <h1>You<span> Loving</span> It.?</h1>
+                    <p>By Viewing Of Some Details</p>
+                    <a href="#games" class="btn">- View -<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('image3.jpg');">
+                <div class="slide-content">
+                    <h1>Wanna<span> Play </span>It?</h1>
+                    <p>To Play The Demo</p>
+                    <a href="#games" class="btn">- Play -<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                <span class="slider-dot" onclick="goToSlide(1)"></span>
+                <span class="slider-dot" onclick="goToSlide(2)"></span>
+            </div>
+            <button class="slider-arrow prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+
+    </div>
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top<span>Games</span></h2>
+            </div>
+
+            <div class="games-grid" id="gamesGrid">
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="pubg-mobile.jpg" alt="PUBG">
+                        <h3><b>PUBG</b></h3>
+                        <p>PlayerUnknown's Battlegrounds is an online multiplayer battle royale game developed
+                            and published by PUBG corporation</p>
+                        <a href="https://pubg-mobile.en.softonic.com/" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="callofduty.jpg" alt="Call of Duty">
+                        <h3><b>CALL OF DUTY</b></h3>
+                        <p>Call of Duty is a first-person shooter video game franchise published by Activision.</p>
+                        <br><br>
+                        <a href="https://download.battle.net/en-us/desktop" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="thelastofus.jpg" alt="The Last of Us" height="400px" width="400px">
+                        <h3><b>THE LAST OF US</b></h3>
+                        <p>The Last of Us is an action-adventure survival game developed by Naughty Dog.</p>
+                        <a href="https://en.softonic.com/" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="thewitchers.jpg" alt="The Witcher">
+                        <h3><b>THE WITCHER</b></h3>
+                        <p>Wild Hunt is an open-world action role-playing game developed by CD Projekt Red.</p>
+                        <a href="https://en.softonic.com/" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="dota2dowload.jpg" alt="Dota 2">
+                        <h3><b>DOTA 2</b></h3>
+                        <p>Dota 2 is a multiplayer online battle arena video game developed by Valve Corporation.</p>
+                        <br>
+                        <a href="https://en.softonic.com/" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-info">
+                        <img src="grand-theft-auto- V.jpg" alt="GTA V">
+                        <h3><b>GRAND THEFT AUTO V</b></h3>
+                        <p>Grand Theft Auto V is an action-adventure video game developed by Rockstar Games.</p><br>
+                        <a href="https://en.softonic.com/" target="_blank" class="btn">- Download -</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-section">
+                <div class="about-container">
+
+                    <div class="about-text">
+                        <h5>About us</h5>
+                        <h2>Welcome to <span>Tangoline</span></h2>
+                        <p>Tangoline. is selling Video Games, Game Consoles etc. Company is into selling these
+                            products for last 10 years. They have a wide range of games. The company advertises by
+                            distributing the pamphlets, advertising on television and so on. Due to rapid development in
+                            internet field, the company decides to launch a website where people will get all the
+                            information about the various products available with them easily.</p>
+                        <a href="about.html" class="button-btn" style="display: inline-block;">- More -</a>
+                    </div>
+                    <div class="img-gallery">
+                        <a href="index.html"><img src="logo.jpeg" style="width: 80%"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <div class="show-container">
+                    <div class="quote-text">
+                        <h3><svg width="20px" height="20px" viewBox="0 0 512 512">
+                                <path fill="#ff9933"
+                                    d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z">
+                                </path>
+                            </svg> We do not stop playing because we grow old, we grow old because we stop playing<svg
+                                width="20px" height="20px" viewBox="0 0 512 512">
+                                <path fill="#ff9933"
+                                    d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z">
+                                </path>
+                            </svg></h3>
+                        <p> – Benjamin Franklin. -</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <h2>How can Compare?</h2>
+                <p>Get involved to compare the various products of different as well as similar brands and Choose Best
+                    Product accordingly to yours Choice.</p>
+                <a href="comparison" class="button-btn" style="display: inline-block;">- Compare Now -</a>
+            </div>
+
+            <div class="testimonial">
+                <h2>TESTIMONIALS</h2>
+                <div class="slideshow1-container">
+
+                    <div class="mySlidess fade">
+                        <div class="text">
+                            <h3>"Tangoline completely changed the way I buy games online. The website is fast, easy to
+                                use, and the deals are amazing!"</h3>
+                            <br>
+                            <p><span><b>Antonio Moreno</b></span>, Web Developer</p>
+                        </div>
+                    </div>
+
+                    <div class="mySlidess fade">
+                        <div class="text">
+                            <h3>"I love the variety of consoles and accessories available here. Customer support is also
+                                very responsive and helpful."</h3>
+                            <br>
+                            <p><span><b>Paula Wilson</b></span>, Media Analyst</p>
+                        </div>
+                    </div>
+
+                    <div class="mySlidess fade">
+                        <div class="text">
+                            <h3>"Tangoline is my go-to platform for gaming products. The quality and reliability are
+                                unmatched, and delivery is always on time."</h3>
+                            <br>
+                            <p><span><b>Michael Holz</b></span>, SEO Analyst</p>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+            <div style="text-align:center;">
+                <span class="dott" onclick="currentSlide(1)"></span>
+                <span class="dott" onclick="currentSlide(2)"></span>
+                <span class="dott" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+        <div class="brands-grid brand-showcase" style="padding: 50px 0;">
+            <h2>HERE'S FEW <span>FAMOUS BRANDS</span> WE'VE WORKED.</h2>
+            <div class="brands-container brand-showcase-line">
+                <div class="brand-items">
+                    <a href="activison.html" title="Activision">
+                        <img src="activision-logo.png" alt="Activision Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="disnep.html" title="Disney">
+                        <img src="brand-1.png" alt="Disney Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="easport.html" title="EA Sport">
+                        <img src="brand-8.png" alt="EA Sport Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="epicgames.html" title="Epic">
+                        <img src="brand-7.png" alt="Epic Logo ">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="netmarble.html" title="Netmarble">
+                        <img src="brand-6.png" alt="Netmarble Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="nexon.html" title="Nexon">
+                        <img src="brand-5.png" alt="Nexon Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="popcap.html" title="Popcap">
+                        <img src="popcap-logo.png" alt="Popcap Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="sega.html" title="Sega">
+                        <img src="brand-3.png" alt="Sega Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="thesims.html" title="Sims">
+                        <img src="sims-logo.png" alt="Sims Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="take2.html" title="Take 2">
+                        <img src="brand-10.png" alt="Take 2 Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="tencent.html" title="Tencent">
+                        <img src="tencent-logo.png" alt="Tencent Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="ubisoft.html" title="Ubisoft">
+                        <img src="brand-12.png" alt="Ubisoft Logo">
+                    </a>
+                </div>
+                <div class="brand-items">
+                    <a href="bandai.html" title="Bandai">
+                        <img src="bandai-logo.png" alt="Bandai Logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer>
+            <p><a href="index.html">Aptech Project Tangoline</a> © - 2026 All rights are reserved.</p>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const navLinks = document.getElementById("navLinks");
+                const showMenuBtn = document.querySelector(".fa-bars");
+                const hideMenuBtn = document.querySelector(".fa-times");
+                const dropdown = document.querySelector(".nav-dropdown");
+                const trigger = dropdown.querySelector(".dropdown-trigger");
+
+                // Open mobile menu
+                showMenuBtn.addEventListener("click", () => {
+                    navLinks.style.right = "0";
+                });
+
+                // Close mobile menu
+                hideMenuBtn.addEventListener("click", () => {
+                    navLinks.style.right = "-100%";
+                    dropdown.classList.remove("show");
+                });
+
+
+                trigger.addEventListener("click", (e) => {
+                    e.preventDefault();
+
+                    dropdown.classList.toggle("show");
+                });
+
+                // Close menu after selecting dropdown item
+                dropdown.querySelectorAll(".dropdown-menu a").forEach(link => {
+                    link.addEventListener("click", () => {
+                        if (window.innerWidth <= 768) {
+                            dropdown.classList.remove("show");
+                            navLinks.style.right = "-100%";
+                        }
+                    });
+                });
+
+                // Reset on resize
+                window.addEventListener("resize", () => {
+                    dropdown.classList.remove("show");
+                    if (window.innerWidth > 768) {
+                        navLinks.style.right = "0";
+                    } else {
+                        navLinks.style.right = "-100%";
+                    }
+                });
+            });
+
+            // Hero Slider
+            let heroIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+            const dots = document.querySelectorAll(".slider-dot");
+
+            function showHeroSlide(n) {
+                if (n >= slides.length) { heroIndex = 0; }
+                if (n < 0) { heroIndex = slides.length - 1; }
+                slides.forEach((slide) => slide.classList.remove("active"));
+                dots.forEach((dot) => dot.classList.remove("active"));
+                slides[heroIndex].classList.add("active");
+                dots[heroIndex].classList.add("active");
+            }
+
+            function changeSlide(n) {
+                heroIndex += n;
+                showHeroSlide(heroIndex);
+            }
+
+            function goToSlide(n) {
+                heroIndex = n;
+                showHeroSlide(heroIndex);
+            }
+
+            // Optional: auto slide every 5 seconds
+            setInterval(() => {
+                changeSlide(1);
+            }, 2500);
+
+            let slideIndex = 1; // start with first slide
+            showSlides(slideIndex);
+
+            // Next/previous controls
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            // Dot controls
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let slides = document.getElementsByClassName("mySlidess");
+                let dots = document.getElementsByClassName("dott");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none"; // hide all slides
+                }
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block"; // show current
+                dots[slideIndex - 1].className += " active"; // activate current dot
+            }
+            const navLinks = document.getElementById("navLinks");
+
+            function showMenu() {
+                navLinks.style.right = "0";
+            }
+
+            function hideMenu() {
+                navLinks.style.right = "-100%";
+            }
+
+        </script>
+</body>
+
+</html>
